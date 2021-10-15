@@ -53,9 +53,6 @@ function App() {
 
     const onInputId = (e) =>{
       console.log(inputId);
-      if(!inputId){
-        alert('Id를 입력해주세요!');
-      }
       setInputId(e.target.value);
     }
 
@@ -74,8 +71,7 @@ function App() {
         ))}
         <hr/>
         <h1>ID 입력</h1>
-        <input type={test} value={inputId} placeholder="Id를 입력하세요" onChange={onInputId} />
-        <h1>Password 입력</h1>
+        <input type="text" value={inputId} placeholder="Id를 입력하세요" onChange={onInputId} />
       </div>
     );
 }
