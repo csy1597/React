@@ -8,6 +8,7 @@ function App() {
     // State
     const [value, setValue] = useState('');
     const [list, setList] = useState([]);
+    
     // Event
     const onChange = (e) => setValue(e.target.value);
     const onClick = () => {
@@ -19,16 +20,22 @@ function App() {
       setValue('');
 
     }
+
     // JSX
-
-
-  return (
-    <div className="App">
-      <h1>게시판</h1>
-      <input value={value} onChange={onChange} />
-      <button value={value} onClick={onClick} >입력</button>
-    </div>
-  );
+    return (
+      <div className="App">
+        <h1>게시판</h1>
+        <input value={value} onChange={onChange} />
+        <button value={value} onClick={onClick} >입력</button>
+        {list.map((item, index)=>(
+          <div key={index}>
+            <input value={item} readOnly />
+            <button onClick={ ()=> onEdit(index)}>추가</button>
+            <button onClick={ () => onDelete(index)}>삭제</button>
+          </div>
+        ))}
+      </div>
+    );
 }
 
 export default App;
