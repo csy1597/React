@@ -64,6 +64,10 @@ function App() {
     const onSubClick = () => {
       console.log('입력완료');
     };
+    const checkOnchange = (e) =>{
+      console.log(!checkOnchange);
+      setIsChecked(e.target.value);
+    }
 
     // JSX
     return (
