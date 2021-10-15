@@ -10,7 +10,7 @@ function App() {
     const [list, setList] = useState([]);
     const [inputId, setInputId] = useState('');
     const [inputPd, setInputPd] = useState('');
-    const [isCheckde, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
     
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -65,7 +65,7 @@ function App() {
       console.log('입력완료');
     };
     const checkOnchange = (e) =>{
-      console.log(!checkOnchange);
+      console.log(!isChecked);
       setIsChecked(e.target.value);
     }
 
@@ -88,6 +88,16 @@ function App() {
         <p>Password 입력</p>
         <input type="password" value={inputPd} placeholder="password를 입력하세요" onChange={onInputPd} /><br/>
         <button type="submit" onClick={onSubClick}>입력</button>
+        <hr/>
+        <p>check box</p>
+        <label>
+          연봉 3000대
+          <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        </label><br/>        
+        <label>
+          연봉 4000대
+          <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        </label>
       </div>
     );
 }
