@@ -34,8 +34,17 @@ function App() {
         return editList;
       });
     };
+    
+    const onDelete = (index) => {
+      console.log(index);
 
-
+      setList((prevState)=>{
+        const deleteList = prevState.filter((item, i)=>{
+          return i !== index&& item;
+        });
+        return deleteList;
+      });
+    };
 
     // JSX
     return (
@@ -46,7 +55,8 @@ function App() {
         {list.map((item, index)=>(
           <div key={index}>
             <input value={item} readOnly />
-            <button onClick={ ()=> onEdit(index)}>추가</button>
+            <button onClick={ ()=> onEdit(index)}>재입력</button>
+            <button onClick={ ()=> onDelete(index)}>삭제</button>
           </div>
         ))}
       </div>
