@@ -15,7 +15,7 @@ function App() {
       console.log(value);
       if(!value){
         alert('아무것도 입력이 되지 않았습니다.')
-        return 
+        return; 
       }
       setList((prevState) => [...prevState, value]);
       setValue('');
@@ -26,6 +26,10 @@ function App() {
 
       const editText = prompt();
       console.log(editText);
+      if(!editText){
+        alert('아무것도 입력되지 않았습니다.');
+        return;
+      }
 
       setList((prevState)=>{
         const editList =prevState.map((item,i) =>{
