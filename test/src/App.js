@@ -7,6 +7,7 @@ function App() {
 
     // State
     const [value, setValue] = useState('');
+    const [list, setList] = useState([]);
     // Event
     const onChange = (e) => setValue(e.target.value);
     const onClick = () => {
@@ -14,7 +15,9 @@ function App() {
       if(!value){
         console.log('아무것도 입력이 되지 않았습니다.')
       }
-      
+      setList((prevState) => [...prevState, value]);
+      setValue('');
+
     }
     // JSX
 
