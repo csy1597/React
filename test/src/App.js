@@ -13,7 +13,7 @@ function App() {
     const onClick = () => {
       console.log(value);
       if(!value){
-        console.log('아무것도 입력이 되지 않았습니다.')
+        alert('아무것도 입력이 되지 않았습니다.')
       }
       setList((prevState) => [...prevState, value]);
       setValue('');
@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <h1>게시판</h1>
       <input value={value} onChange={onChange} />
-      <button value={value} onClick={onClick} />
+      <button value={value} onClick={onClick} >입력</button>
     </div>
   );
 }
