@@ -8,6 +8,7 @@ function App() {
     // State
     const [value, setValue] = useState('');
     const [list, setList] = useState([]);
+    const [inputId, setInputId] = useState('');
     
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -50,6 +51,14 @@ function App() {
       });
     };
 
+    const onInputId = (e) =>{
+      console.log(inputId);
+      if(!inputId){
+        alert('Id를 입력해주세요!');
+      }
+      setInputId(e.target.value);
+    }
+
     // JSX
     return (
       <div className="App">
@@ -63,6 +72,10 @@ function App() {
             <button onClick={ ()=> onDelete(index)}>삭제</button>
           </div>
         ))}
+        <hr/>
+        <h1>ID 입력</h1>
+        <input type={test} value={inputId} placeholder="Id를 입력하세요" onChange={onInputId} />
+        <h1>Password 입력</h1>
       </div>
     );
 }
