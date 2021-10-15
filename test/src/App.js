@@ -9,6 +9,7 @@ function App() {
     const [value, setValue] = useState('');
     const [list, setList] = useState([]);
     const [inputId, setInputId] = useState('');
+    const [inputPd, setInputPd] = useState('');
     
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -55,6 +56,13 @@ function App() {
       console.log(inputId);
       setInputId(e.target.value);
     }
+    const onInputPd = (e) =>{
+      console.log(inputPd);
+      setInputPd(e.target.value);
+    }
+    const onSubClick = () =>{
+      console.log('입력완료')
+    }
 
     // JSX
     return (
@@ -70,8 +78,11 @@ function App() {
           </div>
         ))}
         <hr/>
-        <h1>ID 입력</h1>
+        <h>ID 입력</h>
         <input type="text" value={inputId} placeholder="Id를 입력하세요" onChange={onInputId} />
+        <h>Password 입력</h>
+        <input type="password" value={inputPd} placeholder="password를 입력하세요" onChange={onInputPd} />
+        <buttom type="submit" onClick={onSubClick}>입력</buttom>
       </div>
     );
 }
