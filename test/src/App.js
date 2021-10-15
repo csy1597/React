@@ -11,6 +11,7 @@ function App() {
     const [inputId, setInputId] = useState('');
     const [inputPd, setInputPd] = useState('');
     const [isChecked, setIsChecked] = useState(false);
+    const [isRadio, setIsRadio] = useState('');
     
     // Event
     const onChange = (e) => setValue(e.target.value);
@@ -56,18 +57,23 @@ function App() {
     const onInputId = (e) =>{
       console.log(inputId);
       setInputId(e.target.value);
-    }
+    };
     const onInputPd = (e) =>{
       console.log(inputPd);
       setInputPd(e.target.value);
-    }
+    };
     const onSubClick = () => {
       console.log('입력완료');
     };
     const checkOnchange = (e) =>{
       console.log(!isChecked);
       setIsChecked(e.target.value);
-    }
+    };
+
+    const clickOnchange = () => {
+      console.log(!isRadio);
+      setIsRadio(!isRadio);
+    };
 
     // JSX
     return (
@@ -92,11 +98,21 @@ function App() {
         <p>check box</p>
         <label>
           연봉 3000대
-          <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+          <input type="checkbox" value={isChecked} checked={isChecked} name="framework1" onChange={checkOnchange} />
         </label><br/>        
         <label>
           연봉 4000대
-          <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+          <input type="checkbox" value={isChecked} checked={isChecked} name="framework2" onChange={checkOnchange} />
+        </label>
+        <hr/>
+        <p>Radio</p>
+        <label>
+          <input type="radio" value={isRadio} id="radio1" onChange={clickOnchange} />
+          자동차
+        </label>
+        <label>
+          <input type="radio" value={isRadio} id="radio2" onChange={clickOnchange} />
+          집
         </label>
       </div>
     );
