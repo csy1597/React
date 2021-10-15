@@ -15,11 +15,27 @@ function App() {
       console.log(value);
       if(!value){
         alert('아무것도 입력이 되지 않았습니다.')
+        return 
       }
       setList((prevState) => [...prevState, value]);
       setValue('');
 
     }
+    const onEdit = (index) => {
+      console.log(index);
+
+      const editText = prompt();
+      console.log(editText);
+
+      setList((prevState)=>{
+        const editList =prevState.map((item,i) =>{
+          return i === index ? editText:item;
+        })
+        return editList;
+      });
+    };
+
+
 
     // JSX
     return (
@@ -31,7 +47,6 @@ function App() {
           <div key={index}>
             <input value={item} readOnly />
             <button onClick={ ()=> onEdit(index)}>추가</button>
-            <button onClick={ () => onDelete(index)}>삭제</button>
           </div>
         ))}
       </div>
