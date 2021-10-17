@@ -18,6 +18,24 @@ function App() {
       alert("아무것도 없어요!!");
       return;
     }
+    setList((prevState)=> [...prevState, value]);
+    setValue('');
+  }
+  const onEdit = (index)=>{
+    console.log(index);
+
+    const editText = prompt();
+    console.log(editText);
+    if(!editText){
+      alert('다시 입력해주세요!');
+      return;
+    }
+    setList((prevState)=>{
+      const editList = prevState.map((item, i) => {
+        return i === index ? editText:item;
+      });
+      return editList;
+    });
   }
 
 
@@ -29,6 +47,14 @@ function App() {
       <input value={value} onChange={onChange} />
       <button value={value} onClick={onClick}>Click</button>
       <hr/>
+      {list.map((item, index)=>(
+        <div key={index}>
+          <input value={item} readonly />
+          <button onClick={() => onEdit(index)}>Edit</button>
+          <button onClick={() => onDelete(index)}></button>
+
+        </div>
+      ))}
     </div>
   );
 }
