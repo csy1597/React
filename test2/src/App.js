@@ -27,15 +27,25 @@ function App() {
     if(!editText){
       alert('다시 입력 해주세요!');
       return;
-    }
+    };
 
     setList((prevState)=> {
       const editList = prevState.map((item, i) =>{
         return i === index ? editText:item;
-      })
+      });
       return editList;
-    })
+    });
   };
+  const onDelete =(index) =>{
+    console.log(index);
+
+    setList((prevState)=>{
+      const deleteList = prevState.filter((item, i)=>{
+        return i !== item&&index;
+      });
+      return deleteList;
+    });
+  }
   // JSX
   return (
     <div className="App">
@@ -46,6 +56,7 @@ function App() {
         <div key={index}>
           <input value={item} readOnly/>
           <button onClick= { () => onEdit(index)} >Edit</button>
+          <button onClick= { () => onDelete(index)} >Delete</button>
         </div>
       ))}
     </div>
