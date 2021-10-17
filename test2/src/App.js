@@ -7,8 +7,19 @@ function App() {
   
   //State
   const [value, setValue] = useState('');
+  const [list, setList] = useState([]);
+
+
   //Event
   const onChange = (e) => setValue(e.target.value);
+  const onClick = () =>{
+    console.log(value);
+    if(!value){
+      alert("아무것도 없어요!!");
+      return;
+    }
+  }
+
 
   
   // JSX
@@ -16,7 +27,8 @@ function App() {
     <div className="App">
       <h1>todoList</h1>
       <input value={value} onChange={onChange} />
-      <button>Click</button>
+      <button value={value} onClick={onClick}>Click</button>
+      <hr/>
     </div>
   );
 }
