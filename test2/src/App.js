@@ -7,6 +7,7 @@ function App() {
   
   //State
   const [value, setValue] = useState('');
+  const [list, setList] = useState([]);
   //Event
   const onChange = (e) => setValue(e.target.value);
   const onClick = () => {
@@ -15,13 +16,15 @@ function App() {
       alert('아무것도 없어요 !!!');
       return;
     }
+    setList((prevState) => [...prevState, value]);
+    setValue('');
   }
   // JSX
   return (
     <div className="App">
       <h1> todo list </h1>
       <input value={value} onChange={onChange} />
-      <button value={value} onClick={onClick} />
+      <button value={value} onClick={onClick}>Click</button>
     </div>
   );
 }
