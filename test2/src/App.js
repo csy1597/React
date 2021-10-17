@@ -36,6 +36,17 @@ function App() {
       });
       return editList;
     });
+  };
+
+  const onDelete = (index) =>{
+    console.log(index);
+
+    setList((prevState)=>{
+      const deleteList = prevState.filter((item, i)=>{
+        return i !== index && item;
+      });
+      return deleteList;
+    });
   }
 
 
