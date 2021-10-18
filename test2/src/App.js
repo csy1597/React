@@ -20,6 +20,23 @@ function App() {
     setList((prevState) => [...prevState, value]);
     setValue('');
   }
+  const onEdit = (index) => {
+    console.log(index);
+
+    const editText = prompt();
+    console.log(editText);
+    if(!editText){
+      alert('다시 입력해 주세요!!!');
+      return;
+    }
+    
+    setList((prevState)=>{
+      const editList = prevState.map((item, i)=>{
+        return i === index ? editText:item;
+      });
+      return editList;
+    });
+  };
   
 
 
@@ -29,10 +46,11 @@ function App() {
     <div className="App">
       <h1>TodoList</h1>
       <input value={value} onChange={onChange} />
-      <button value={value} onClick={onClick}>Click</button>
+      <button onClick={onClick}>Click</button>
       {list.map((item, index) =>(
         <div>
           <input key={item} readOnly />
+          <button onClick={() => onEdit(index)}>Edit</button>
           
         </div>
       ))}
