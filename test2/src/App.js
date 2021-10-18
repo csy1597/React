@@ -58,8 +58,8 @@ function App() {
       <input value={value} onChange={onChange} />
       <button onClick={onClick}>Click</button>
       {list.map((item, index) =>(
-        <div>
-          <input key={index} readOnly />
+        <div key={index}>
+          <input value={item} readOnly />
           <button onClick={() => onEdit(index)}>Edit</button>
           <button onClick={()=> onDelete(index)}>Delete</button>
           
