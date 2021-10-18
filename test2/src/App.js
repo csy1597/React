@@ -10,6 +10,9 @@ function App() {
 
   //Event
   const onChange = (e) => setValue(e.target.value);
+  const onClick = (value) => {
+    console.log(value);
+  }
 
 
   
@@ -18,6 +21,7 @@ function App() {
     <div className="App">
       <h1>TodoList</h1>
       <input value={value} onChange={onChange} />
+      <button value={value} onClick={onClick}>Click</button>
     
     </div>
   );
