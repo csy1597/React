@@ -11,7 +11,7 @@ function App() {
 
   //Event
   const onChange = (e) => setValue(e.target.value);
-  const onClick = (value) => {
+  const onClick = () => {
     console.log(value);
     if(!value){
       alert('아무것도 없습니다.!');
@@ -37,6 +37,16 @@ function App() {
       return editList;
     });
   };
+  const onDelete = (index) => {
+    console.log(index);
+
+    setList((prevState)=>{
+      const deleteList = prevState.filter((item, i)=>{
+        return i!== index&&item;
+      });
+      return deleteList;
+    });
+  };
   
 
 
@@ -49,8 +59,9 @@ function App() {
       <button onClick={onClick}>Click</button>
       {list.map((item, index) =>(
         <div>
-          <input key={item} readOnly />
+          <input key={index} readOnly />
           <button onClick={() => onEdit(index)}>Edit</button>
+          <button onClick={()=> onDelete(index)}>Delete</button>
           
         </div>
       ))}
