@@ -6,16 +6,18 @@ import { useState } from 'react';
 function App() {
   
   //State
-
+  const [value, setValue] = useState('');
 
   //Event
-  
+  const onChange = (e) => setValue(e.target.value);
 
 
   
   // JSX
   return (
     <div className="App">
+      <h1>TodoList</h1>
+      <input value={value} onChange={onChange} />
     
     </div>
   );
