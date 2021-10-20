@@ -9,6 +9,7 @@ function App() {
   const [value, setValue] = useState('');
   const [list, setList] = useState([]);
   const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPw] = useState('');
 
 
   //Event
@@ -50,8 +51,12 @@ function App() {
     });
   };
   const onInputId = (e) => {
-    console.log(inputId)
+    console.log(onInputId);
     setInputId(e.target.value);
+  }
+  const onInputPw = (e)=>{
+    console.log(onInputPw);
+    setInputPw(e.target.value);
   }
 
 
@@ -71,6 +76,8 @@ function App() {
       ))}
       <p>input text</p>
       <input type="text" value={inputId} placeholder="ID를 입력하시오" onChange={onInputId} />
+      <p>input password</p>
+      <input type="password" value={inputPw} placeholder="Password를 입력하시오" onChange={onInputPw} />
     
     </div>
   );
