@@ -68,6 +68,10 @@ function App() {
     console.log(!isChecked);
     setIsChecked(e.target.value);
   }
+  const radioOnchange = (e)=>{
+    console.log(!isRadio);
+    setIsRadio(!isRadio);
+  }
 
 
   
@@ -103,11 +107,11 @@ function App() {
       <hr/>
       <p>Radiobutton</p>
       <label>
-        <input type="radio" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        <input type="radio" value={isRadio} id="radio1" onChange={radioOnchange} />
         집
       </label>
       <label>
-        <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        <input type="radio" value={isRadio} id="radio2" onChange={radioOnchange} />
         차
       </label>
     
