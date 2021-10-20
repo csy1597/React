@@ -58,6 +58,9 @@ function App() {
     console.log(onInputPw);
     setInputPw(e.target.value);
   }
+  const onSubClick = () =>{
+    console.log('입력완료');
+  }
 
 
   
@@ -78,6 +81,8 @@ function App() {
       <input type="text" value={inputId} placeholder="ID를 입력하시오" onChange={onInputId} />
       <p>input password</p>
       <input type="password" value={inputPw} placeholder="Password를 입력하시오" onChange={onInputPw} />
+      <ht/>
+      <button type="submit" onClick={onSubClick}>입력</button>
     
     </div>
   );
