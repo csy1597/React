@@ -8,6 +8,7 @@ function App() {
   //State
   const [value, setValue] = useState('');
   const [list, setList] = useState([]);
+  const [inputId, setInputId] = useState('');
 
   //Event
   const onChange = (e) => setValue(e.target.value);
@@ -47,7 +48,10 @@ function App() {
       return deleteList;
     });
   };
-  
+  const inputId = (e) => {
+    console.log(inputId)
+    setInputId(e.target.value);
+  }
 
 
   
@@ -62,9 +66,10 @@ function App() {
           <input value={item} readOnly />
           <button onClick={() => onEdit(index)}>Edit</button>
           <button onClick={()=> onDelete(index)}>Delete</button>
-          
         </div>
       ))}
+      <p>input text</p>
+      <input value={value} placeholder="ID를 입력하시오" onChange={inputId} />
     
     </div>
   );
