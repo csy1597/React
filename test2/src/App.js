@@ -10,6 +10,9 @@ function App() {
   const [list, setList] = useState([]);
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
+  const [isRadio, setIsRadio] = useState('');
+
 
 
   //Event
@@ -61,6 +64,10 @@ function App() {
   const onSubClick = () =>{
     console.log('입력완료');
   }
+  const checkOnchange= (e) =>{
+    console.log(!isChecked);
+    setIsChecked(e.target.value);
+  }
 
 
   
@@ -77,12 +84,32 @@ function App() {
           <button onClick={()=> onDelete(index)}>Delete</button>
         </div>
       ))}
+      <hr/>
       <p>input text</p>
       <input type="text" value={inputId} placeholder="ID를 입력하시오" onChange={onInputId} />
       <p>input password</p>
-      <input type="password" value={inputPw} placeholder="Password를 입력하시오" onChange={onInputPw} />
-      <ht/>
+      <input type="password" value={inputPw} placeholder="Password를 입력하시오" onChange={onInputPw} /><br/><br/>
       <button type="submit" onClick={onSubClick}>입력</button>
+      <hr/>
+      <p>check box</p>
+      <label>
+        <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        벤츠
+      </label><br/>
+      <label>
+        <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        BMW
+      </label>
+      <hr/>
+      <p>Radiobutton</p>
+      <label>
+        <input type="radio" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        집
+      </label>
+      <label>
+        <input type="checkbox" value={isChecked} checked={isChecked} name="framework" onChange={checkOnchange} />
+        차
+      </label>
     
     </div>
   );
