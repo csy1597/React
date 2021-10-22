@@ -12,6 +12,8 @@ function App() {
   const [inputPw, setInputPw] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   const [isRadio, setIsRadio] = useState('');
+  const [userId, setUserId] = useState('');
+  const [userPw, setUserPw] = useState('');
 
 
 
@@ -72,6 +74,18 @@ function App() {
     console.log(!isRadio);
     setIsRadio(!isRadio);
   }
+  const onUserId = (e)=>{
+    console.log(onUserId);
+    setUserId(e.target.value);
+  }
+  const onUserPw = (e) =>{
+    console.log(onUserPw);
+    setUserPw(e.target.value);
+  }
+  const clickSubmit = (e) =>{
+    e.preventDefalut();
+    console.log(userId, userPw);
+  }
 
 
   
@@ -114,6 +128,14 @@ function App() {
         <input type="radio" value={isRadio} id="radio2" onChange={radioOnchange} />
         차
       </label>
+      <hr/>
+      <p>Form tag</p>
+      <form onSubmit={clickSubmit}>
+        <input value={userId} type="text" placeholder="ID" onChange={onUserId} />
+        <input value={userPw} type="password" placeholder="PW" onChange={onUserPw} />
+        <input type="submit" value="로그인" />
+      </form>
+
     
     </div>
   );
