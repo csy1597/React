@@ -18,6 +18,7 @@ function App() {
   const selectList = ['------','Apple', 'Dell' ,'SamSung', 'LG', 'HP'];
   const [textArea, setTextArea] = useState('');
   const [fileupload, setFileupload] = useState('');
+  const [user, setUser] = useState('');
 
 
   //Event
@@ -101,6 +102,12 @@ function App() {
   };
   const onFileupload = (e) => setFileupload(e.target.value);
   console.log(fileupload);
+
+  const onUser = (e) => setUser(e.target.value);
+  console.log(user);
+  const userReset = () => {
+    setUser('');
+  }
   
 
   
@@ -171,6 +178,15 @@ function App() {
       <input type="file" value={fileupload} onChange={onFileupload} />
       <button type="submit">전송</button>
       <hr/>
+      <p>A tag</p>
+      <a href="http://www.github.com" target="_blank" rel="noreferrer">
+        깃허브로 이동
+      </a>
+      <hr/>
+      <p>Reset Button</p>
+      <input type="text" value={user} onChange={onUser} placeholder="이름" />
+      <button type="reset" onClick={userReset}>Reset</button>
+
       
 
     </div>
