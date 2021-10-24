@@ -17,6 +17,7 @@ function App() {
   const [selected, setSelected] = useState('');
   const selectList = ['------','Apple', 'Dell' ,'SamSung', 'LG', 'HP'];
   const [textArea, setTextArea] = useState('');
+  const [fileupload, setFileupload] = useState('');
 
 
 
@@ -100,6 +101,8 @@ function App() {
   const textReset = () => {
     setTextArea('');
   };
+  const onFileupload = (e) => setFileupload(e.target.value);
+  console.log(fileupload);
 
   
 
@@ -151,6 +154,7 @@ function App() {
         <input value={userPw} type="password" placeholder="PW" onChange={onUserPw} />
         <input type="submit" value="로그인" />
       </form>
+      <hr/>
       <p>Select Box</p>
       <select value={selected} onChange={onSelect}>
         {selectList.map((item)=>(
@@ -159,11 +163,18 @@ function App() {
           </option>
         ))}
       </select>
+      <hr/>
       <p>TextArea</p>
       <form onSubmit={onSubClick}>
         <textarea type="text" value={textArea} onChange={onTextArea} />
         <button onClick={onTextArea}>Sunmit</button>
         <button type="reset" onClick={textReset}>Reset</button>
+      </form>
+      <hr/>
+      <p>fileupload</p>
+      <form>
+        <input type="file" value={fileupload} onChange={onFileupload} />
+        <button type="submit">전송</button>
       </form>
 
     </div>
