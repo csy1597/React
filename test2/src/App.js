@@ -16,6 +16,7 @@ function App() {
   const [userPw, setUserPw] = useState('');
   const [selected, setSelected] = useState('');
   const selectList = ['------','Apple', 'Dell' ,'SamSung', 'LG', 'HP'];
+  const [areaText, setAreaText] = useState('');
 
 
 
@@ -93,6 +94,11 @@ function App() {
     console.log(selected);
     return;
   }
+  const onAreaText = (e) => setAreaText(e.target.value);
+  console.log(areaText);
+  const onTextReset = () =>{
+    setAreaText('');
+  };
 
 
   
@@ -149,8 +155,14 @@ function App() {
             {item}
           </option>
         ))}
-
       </select>
+      <p>Text Area</p>
+      <form onSubmit>
+        <textarea type="text" value={areaText} onChange={onAreaText} />
+        <button onClick>Submit</button>
+        <button type="reset" onClick={onTextReset}>Reset</button>
+      </form>
+
 
     
     </div>
