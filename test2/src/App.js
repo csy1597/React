@@ -17,7 +17,6 @@ function App() {
   const [selected, setSelected] = useState('');
   const selectList = ['------','Apple', 'Dell' ,'SamSung', 'LG', 'HP'];
   const [textArea, setTextArea] = useState('');
-  const [fileupload, setFileupload] = useState('');
 
 
   //Event
@@ -99,8 +98,6 @@ function App() {
   const textReset = () => {
     setTextArea('');
   };
-  const onFileupload = (e) => setFileupload(e.target.value);
-  console.log(fileupload);
 
   
 
@@ -169,9 +166,6 @@ function App() {
         <button type="reset" onClick={textReset}>Reset</button>
       </form>
       <hr/>
-      <p>FileUpLoad</p>
-      <input type="file" value={fileupload} onChange={onFileupload} />
-      <button type="submit">전송</button>
 
     </div>
   );
