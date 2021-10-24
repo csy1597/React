@@ -171,9 +171,6 @@ function App() {
       <input type="file" value={fileupload} onChange={onFileupload} />
       <button type="submit">전송</button>
       <hr/>
-      <a href="http://www.github.com" target="_blank" rel="noreferrer">
-        github 이동
-      </a>
       
 
     </div>
