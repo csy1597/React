@@ -14,6 +14,8 @@ function App() {
   const [isRadio, setIsRadio] = useState('');
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
+  const [selected, setSelected] = useState('');
+  const selectList = ['------','Apple', 'Dell' ,'SamSung', 'LG', 'HP'];
 
 
 
@@ -86,6 +88,11 @@ function App() {
     console.log(onUserPw);
     setUserPw(e.target.value);
   }
+  const onSelect = (e) =>{
+    setSelected(e.target.value);
+    console.log(selected);
+    return;
+  }
 
 
   
@@ -135,6 +142,15 @@ function App() {
         <input value={userPw} type="password" placeholder="PW" onChange={onUserPw} />
         <input type="submit" value="로그인" />
       </form>
+      <p>Select Box</p>
+      <select value={selected} onChange={onSelect}>
+        {selectList.map((item)=>(
+          <option value={item} key={item}>
+            {item}
+          </option>
+        ))}
+
+      </select>
 
     
     </div>
