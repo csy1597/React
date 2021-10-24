@@ -18,6 +18,7 @@ function App() {
   const selectList = ['------','Apple', 'Dell' ,'SamSung', 'LG', 'HP'];
   const [textArea, setTextArea] = useState('');
   const [fileupload, setFileupload] = useState('');
+  const [user, setUser] = useState('');
 
 
   //Event
@@ -61,39 +62,39 @@ function App() {
   const onInputId = (e) => {
     console.log(onInputId);
     setInputId(e.target.value);
-  }
+  };
   const onInputPw = (e)=>{
     console.log(onInputPw);
     setInputPw(e.target.value);
-  }
+  };
   const onSubClick = () =>{
     console.log('입력완료');
-  }
+  };
   const checkOnchange= (e) =>{
     console.log(!isChecked);
     setIsChecked(e.target.value);
-  }
+  };
   const radioOnchange = (e)=>{
     console.log(!isRadio);
     setIsRadio(!isRadio);
-  }
+  };
   const onUserId = (e) => {
     console.log(onUserId);
     setUserId(e.target.value);
-  }
+  };
   const clickSubmit = (e)=>{
     e.preventDefault();
     console.log(userId, userPw);
-  }
+  };
   const onUserPw = (e) => {
     console.log(onUserPw);
     setUserPw(e.target.value);
-  }
+  };
   const onSelect = (e) =>{
     setSelected(e.target.value);
     console.log(selected);
     return;
-  }
+  };
   const onTextArea = (e) => setTextArea(e.target.value);
   console.log(textArea);
   const textReset = () => {
@@ -101,6 +102,11 @@ function App() {
   };
   const onFileupload = (e) => setFileupload(e.target.value);
   console.log(fileupload);
+  const onUser = (e) => setUser(e.target.value);
+  console.log(user);
+  const userReset = () =>{
+    setUser('');
+  };
   
 
   
@@ -175,6 +181,10 @@ function App() {
       <a href="http://www.github.com" target="_blank" rel="noreferrer">
         깃허브로 이동
       </a>
+      <hr/>
+      <p>Reset Button</p>
+      <input type="text" value={user} onChange={onUser} placeholder="Name" />
+      <button type="reset" onClick={userReset}>Reset</button>
       <hr/>
 
       
