@@ -19,6 +19,8 @@ function App() {
   const [textArea, setTextArea] = useState('');
   const [fileupload, setFileupload] = useState('');
   const [user, setUser] = useState('');
+  const [table, setTable] = useState('');
+  const siteList = ["--선택--", "네이버", "다음", "네이트", "구글"];
 
 
 
@@ -109,6 +111,11 @@ function App() {
   const userReset = () => {
     setUser('');
   }
+  const onTable = (e)=> {
+    setTable(e.target.value);
+    console.log(table);
+    return;
+  }
   
 
   
@@ -188,6 +195,34 @@ function App() {
       <input type="text" value={user} onChange={onUser} placeholder="Name" />
       <button type="reset" onClick={userReset}>Reset</button>
       <hr/>
+      <p>Table</p>
+      <table border="1" width="20%" height="100" cellSpacing="1">
+        <caption>Site</caption>
+        <tr align="center" bgcolor="white">
+          <td rowSpan="2" border="green">
+            Naver
+            <a href="http://www.naver.com/">Let's Go</a>
+          </td>
+          <td bgcolor="yellow">kakao</td>
+          <td bgcolor="lightblue">google</td>
+        </tr>
+        <tr align="center" bgcolor="white">
+          <td colSpan="2" bgcolor="pink">HTML</td>
+          <td>CSS</td>
+          <td>Python</td>
+        </tr>
+        <tr align="center" bgcolor="white">
+          <td>
+            <select value={table} onChange={onTable}>
+              {siteList.map((item)=>(
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </td>
+        </tr>
+      </table>
       
       
 
