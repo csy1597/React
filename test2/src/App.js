@@ -19,6 +19,8 @@ function App() {
   const [textArea, setTextArea] = useState('');
   const [fileupload, setFileupload] = useState('');
   const [user, setUser] = useState('');
+  const [tdSelect, setTdSelect] = useState('');
+  const siteList = ['------', '네이버', '다음', '네이트', '구글', '사파리'];
 
 
 
@@ -109,6 +111,11 @@ function App() {
   const userReset = () => {
     setUser('');
   }
+  const onTdSelect = (e) => {
+    setTdSelect(e.target.value);
+    console.log(tdSelect);
+    return;
+  }
   
 
   
@@ -188,7 +195,34 @@ function App() {
       <input type="text" value={user} onChange={onUser} placeholder="Name" />
       <button type="reset" onClick={userReset}>Reset</button>
       <hr/>
-
+      <p>Table</p>
+      <table border="1" width="20%" height="100" cellSpacing="1">
+        <caption>Site</caption>
+        <tr align="center" bgcolor="white">
+          <td rowSpan="2" bgcolor="green">
+            Naver
+            <a href="http://www.naver.com/">Let's go</a>
+          </td>
+          <td bgcolor="yellow">Kakao</td>
+          <td bgcolor="white">Google</td>
+        </tr>
+        <tr align="center" bgcolor="white">
+          <td colSpan="2" bgcolor="red">스포츠뉴스</td>
+          <td bgcolor="blue">메일</td>
+          <td >광고</td>
+        </tr>
+        <tr align="center" bgcolor="white">
+          <td>
+            <select value={tdSelect} onChange={onTdSelect}>
+              {siteList.map((item)=>(
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </td>
+        </tr>
+      </table>
       
 
     </div>
