@@ -19,8 +19,6 @@ function App() {
   const [textArea, setTextArea] = useState('');
   const [fileupload, setFileupload] = useState('');
   const [user, setUser] = useState('');
-  const [tdSelect, setTdSelect] = useState('');
-  const languageList = ["JavaScript","HTML", "CSS", "Java"];
 
 
 
@@ -111,11 +109,6 @@ function App() {
   const userReset = () => {
     setUser('');
   }
-  const tdClick = (e) => {
-    setTdSelect(e.target.value);
-    console.log(tdClick);
-    return;
-  }
   
 
   
@@ -194,39 +187,6 @@ function App() {
       <p>Reset Button</p>
       <input type="text" value={user} onChange={onUser} placeholder="Name" />
       <button type="reset" onClick={userReset}>Reset</button>
-      <hr/>
-      <p>table</p>
-      <table border="1" width="20%" height="100" cellSpacing="1">
-        <caption>Favorite Language</caption>
-        <tr align="center" bgcolor="white">
-          <td rowSpan="2" bgcolor="lightblue">
-            JavaScript
-            <a href="http://developer.mozilla.org/" title="MDN Site">
-              검색
-            </a>
-          </td>
-          <td bgcolor="lightgreen">Java</td>
-          <td bgcolor="gray">TypeScript</td>
-        </tr>
-        <tr align="center" bgcolor="white">
-          <td colSpan="2" bgcolor="yellow">
-            HTML
-          </td>
-          <td>Python</td>
-          <td>Vue</td>
-        </tr>
-        <tr align="center" bgcolor="white">
-          <td>
-            <select value={tdSelect} onchange={tdClick}>
-              {languageList.map((item)=>(
-                <option value={item} key={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </td>
-        </tr>
-      </table>
       <hr/>
 
       
