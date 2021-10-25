@@ -20,6 +20,7 @@ function App() {
   const [fileupload, setFileupload] = useState('');
   const [user, setUser] = useState('');
   const [tdSelect, setTdSelect] = useState('');
+  const languageList = ["JavaScript","HTML", "CSS", "Java"];
 
 
 
@@ -214,8 +215,19 @@ function App() {
           <td>Python</td>
           <td>Vue</td>
         </tr>
-
+        <tr align="center" bgcolor="white">
+          <td>
+            <select value={tdSelect} onchange={tdClick}>
+              {languageList.map((item)=>(
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </td>
+        </tr>
       </table>
+      <hr/>
 
       
 
