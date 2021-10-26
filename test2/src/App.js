@@ -21,6 +21,7 @@ function App() {
   const [user, setUser] = useState('');
   const [table, setTable] = useState('');
   const siteList = ["--선택--", "네이버", "다음", "네이트", "구글"];
+  const [click, setClick] = useState('');
 
 
 
@@ -110,12 +111,19 @@ function App() {
   console.log(user);
   const userReset = () => {
     setUser('');
-  }
+  };
   const onTable = (e)=> {
     setTable(e.target.value);
     console.log(table);
     return;
-  }
+  };
+  const onDbclick = (e) => setClick(e.target.value);
+  const onDBbutton = () => {
+    console.log(click);
+    if(!click){
+      alert('입력해주세요!');
+    }
+  };
   
 
   
@@ -236,6 +244,11 @@ function App() {
         <li>구글</li>
       </ul>
       <hr/>
+      <p>doubleClick</p>
+      <input value={click} onChange={onDbclick} />
+      <button onDoubleClick={onDBbutton}>더블클릭</button>
+      <hr/>
+
       
       
 
