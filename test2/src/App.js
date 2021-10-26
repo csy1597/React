@@ -224,6 +224,18 @@ function App() {
         </tr>
       </table>
       <hr/>
+      <p>ul li</p>
+      <ul>
+        <b>원하는 사이트가 어디냐?</b>
+        <a href="http://www.naver.com" target="_blank">
+          <li>
+            <b>네이버</b>
+          </li>
+        </a>
+        <li>다음</li>
+        <li>구글</li>
+      </ul>
+      <hr/>
       
       
 
