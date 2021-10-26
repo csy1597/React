@@ -224,18 +224,6 @@ function App() {
         </tr>
       </table>
       <hr/>
-      <p>ul li</p>
-      <ul>
-        <b>where we going?</b>
-          <a href="http://www.naver.com" target="_blank">
-            <li>
-              <b>네이버</b>
-            </li>
-          </a>
-          <li>B</li>
-          <li>C</li>
-
-      </ul>
       
       
 
