@@ -21,6 +21,7 @@ function App() {
   const [user, setUser] = useState('');
   const [table, setTable] = useState('');
   const siteList = ["--선택--", "네이버", "다음", "네이트", "구글"];
+  const [dbClick, setDbClick] = useState('');
 
 
 
@@ -116,6 +117,13 @@ function App() {
     console.log(table);
     return;
   }
+  const onDbClick = (e) => setDbClick(e.target.value);
+  const onDBClick = () => {
+    console.log(dbClick);
+    if(!dbClick){
+      alert('anything put your message')
+    }
+  };
   
 
   
@@ -235,6 +243,10 @@ function App() {
         <li>다음</li>
         <li>구글</li>
       </ul>
+      <hr/>
+      <p>doubleClick</p>
+      <input value={dbClick} onChange={onDbClick} />
+      <button onDoubleClick={onDBClick}>doubleClick</button>
       <hr/>
       
       
