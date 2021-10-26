@@ -117,13 +117,13 @@ function App() {
     console.log(table);
     return;
   };
-  const onDbclick = (e) => setClick(e.target.value);
-  const onDBbutton = () => {
+  const onDbClick = (e) => setClick(e.target.value);
+  const onDbButton = () => {
     console.log(click);
     if(!click){
       alert('입력해주세요!');
     }
-  };
+  }
   
 
   
@@ -244,10 +244,11 @@ function App() {
         <li>구글</li>
       </ul>
       <hr/>
-      <p>doubleClick</p>
-      <input value={click} onChange={onDbclick} />
-      <button onDoubleClick={onDBbutton}>더블클릭</button>
+      <p>dbClick</p>
+      <input value={click} onChange={onDbClick} />
+      <button onDoubleClick={onDbButton}>더블클릭</button>
       <hr/>
+
 
       
       
