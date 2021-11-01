@@ -22,8 +22,6 @@ function App() {
   const [table, setTable] = useState('');
   const siteList = ["--선택--", "네이버", "다음", "네이트", "구글"];
   const [click, setClick] = useState('');
-  const [userName, setUserName] =useState('');
-  const [inputNumber, setInputNumber] = useState('');
 
 
 
@@ -127,25 +125,6 @@ function App() {
       alert('입력해주세요!');
     }
   };
-  const userNameChange = (e) => {
-    console.log(userName);
-    const regexName = /^[a-z\b -]{0,30}$/
-    if(regexName.test(e.target.value)){
-      setUserName(e.target.value);
-    }
-  };
-  const numberChange = (e) => {
-    console.log(inputNumber);
-    const regexNumber = /^[0-9\b -]{0,11}$/
-    if(regexNumber.test(e.target.value)){
-      setInputNumber(e.target.value);
-    }
-  };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(userName, inputNumber);
-  };
-  
 
   
   // JSX
@@ -269,12 +248,6 @@ function App() {
       <input value={click} onChange={onDbClick} />
       <button onDoubleClick={onDbButton}>더블클릭</button>
       <hr/>
-      <p>정규식표현</p>
-      <form onSubmit={onSubmit}> 
-        <input type="text" value={userName} onChange={userNameChange} />
-        <input type="text" value={inputNumber} onChange={numberChange} />
-        <button type="submit">가입</button>
-      </form>
 
 
       
