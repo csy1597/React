@@ -25,12 +25,8 @@ function App() {
   const [userName, setUserName] = useState('');
   const [inputNumber, setInputNumber] = useState('');
   const [callBook, setCallBook] = useState('');
-
-
-
-
-
-
+  const [callBookList, setCallBookList] = useState('');
+  
 
 
   //Event
@@ -163,7 +159,29 @@ function App() {
       alert("put your phone number");
       return;
     }
+    setCallBookList((prevState)=> [...prevState, callBook]);
+    setCallBook('');
   }
+  const numberEdit = (index) => {
+    console.log(value);
+    const callEdit = prompt();
+    console.log(callEdit);
+    setCallBookList((prevState)=>{
+      const callEditList = prevState.map((item, i) =>{
+        return i === index ? callEdit:item;
+      });
+      return callEditList;
+    });
+  };
+  const numberDelete = (index) => {
+    console.log(index);
+    setCallBookList((prevState) => {
+      const callDeleteList = prevState.filter((item, i) => {
+        return i !== index && item;
+      });
+      return callDeleteList;
+    });
+  };
 
   
   // JSX
@@ -297,6 +315,13 @@ function App() {
       <p>전화번호부</p>
       <input type="text" value={callBook} onChange={onCallBook} />
       <button onClick={addCallBook}>ADD</button>
+      {callBookList.map((item, index) => (
+        <div key={index}>
+          <input value={item} readOnly />
+          <button onClick={() => numberEdit(index)}>Edit</button>
+          <button onClick={() => numberDelete(index)}>Delete</button>
+        </div>
+      ))}
 
 
 
