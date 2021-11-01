@@ -24,6 +24,8 @@ function App() {
   const [click, setClick] = useState('');
   const [userName, setUserName] = useState('');
   const [inputNumber, setInputNumber] = useState('');
+  const [callBook, setCallBook] = useState('');
+  const [callList, setCallList] = useState([]);
 
 
 
@@ -147,6 +149,22 @@ function App() {
     e.preventDefault();
     console.log(userName, inputNumber);
   };
+  const onCallBook = (e) => {
+    console.log(callBook);
+    const callBookregex = /^[0-9\b -]{0,11}$/
+    if(callBookregex.test(e.target.value)){
+      setCallBook(e.target.value);
+    }
+  };
+  const addCallBook = () => {
+    console.log(callBook);
+    if(!callBook){
+      alert("put your phone number");
+    }
+    setCallList((prevState)=>[...prevState, callBook]);
+    setCallList('');
+
+  }
 
   
   // JSX
@@ -277,6 +295,10 @@ function App() {
         <button type="submit">가입</button>
       </form>
       <hr/>
+      <p>전화번호부</p>
+      <input type="text" value={callBook} onChange={onCallBook} />
+      <button onClick={addCallBook}>ADD</button>
+
 
 
       
