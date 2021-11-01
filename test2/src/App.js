@@ -163,8 +163,28 @@ function App() {
     }
     setCallList((prevState)=>[...prevState, callBook]);
     setCallList('');
-
   }
+  const numberEdit = (index) => {
+    console.log(value);
+    const callEdit = prompt();
+    console.log(callEdit);
+
+    setCallList((prevState) => {
+      const callEditList = prevState.map((item, i)=> {
+        return i === index ? callEdit:item;
+      }); 
+      return callEditList;
+    });
+  };
+  const numberDelete = (index) => {
+    console.log(index);
+    setCallList((prevState)=>{
+      const callDeleteList = prevState.filter((item, i)=>{
+        return i !== index && item;
+      });
+      return callDeleteList;
+    });
+  };
 
   
   // JSX
@@ -298,6 +318,14 @@ function App() {
       <p>전화번호부</p>
       <input type="text" value={callBook} onChange={onCallBook} />
       <button onClick={addCallBook}>ADD</button>
+      {callList.map((item, index)=>(
+        <div key={index}>
+          <input value={item} readOnly />
+          <button onClick={() => numberEdit(index)}>Edit</button>
+          <button onClick={()=> numberDelete(index)}>Delete</button>
+        </div>
+      ))}
+      <hr/>
 
 
 
