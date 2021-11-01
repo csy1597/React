@@ -157,6 +157,13 @@ function App() {
       setCallBook(e.target.value);
     }
   };
+  const addCallBook = () => {
+    console.log(callBook);
+    if(!callBook){
+      alert("put your phone number");
+      return;
+    }
+  }
 
   
   // JSX
@@ -289,6 +296,7 @@ function App() {
       <hr/>
       <p>전화번호부</p>
       <input type="text" value={callBook} onChange={onCallBook} />
+      <button onClick={addCallBook}>ADD</button>
 
 
 
