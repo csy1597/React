@@ -25,7 +25,7 @@ function App() {
   const [userName, setUserName] = useState('');
   const [inputNumber, setInputNumber] = useState('');
   const [callBook, setCallBook] = useState('');
-  const [callBookList, setCallBookList] = useState('');
+  const [callBookList, setCallBookList] = useState([]);
   
 
 
@@ -314,7 +314,7 @@ function App() {
       <hr/>
       <p>전화번호부</p>
       <input type="text" value={callBook} onChange={onCallBook} />
-      <button onClick={addCallBook}>ADD</button>
+      <button onClick={addCallBook}> ADD </button>
       {callBookList.map((item, index) => (
         <div key={index}>
           <input value={item} readOnly />
