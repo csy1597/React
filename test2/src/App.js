@@ -163,8 +163,8 @@ function App() {
     }
     setCallList((prevState) => [...prevState, callBook]);
     setCallBook('');
-  }
-  const oncallEdit = (index) =>{
+  };
+  const onCallEdit = (index) =>{
     console.log(value);
     const callEdit = prompt();
     console.log(callEdit);
@@ -174,6 +174,15 @@ function App() {
         return i===index? callEdit:item;
       });
       return callEditList;
+    });
+  };
+  const onCallDelete = (index) => {
+    console.log(index);
+    setCallList((prevState) => {
+      const callDeleteList = prevState.filter((item, i) => {
+        return i !== index&&item;
+      });
+      return callDeleteList;
     });
   };
 
@@ -313,10 +322,11 @@ function App() {
       {callList.map((item, index)=>(
         <div key={index}>
           <input type="text" readOnly />
-          <button onClick={()=> oncallEdit(index)}>Edit</button>
-
+          <button onClick={()=> onCallEdit(index)}>Edit</button>
+          <button onClick={()=> onCallDelete(index)}>Delete</button>
         </div>
       ))}
+      <hr/>
       
 
 
