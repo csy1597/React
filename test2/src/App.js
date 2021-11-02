@@ -164,6 +164,18 @@ function App() {
     setCallList((prevState) => [...prevState, callBook]);
     setCallBook('');
   }
+  const oncallEdit = (index) =>{
+    console.log(value);
+    const callEdit = prompt();
+    console.log(callEdit);
+    
+    setCallList((prevState)=>{
+      const callEditList = prevState.map((item, i) => {
+        return i===index? callEdit:item;
+      });
+      return callEditList;
+    });
+  };
 
 
   
@@ -298,9 +310,13 @@ function App() {
       <p>전화번호부</p>
       <input type="text" value={callBook} onChange={onCallBook} />
       <button onClick={addCallBook}>ADD</button>
-      {
-        
-      }
+      {callList.map((item, index)=>(
+        <div key={index}>
+          <input type="text" readOnly />
+          <button onClick={()=> oncallEdit(index)}>Edit</button>
+
+        </div>
+      ))}
       
 
 
