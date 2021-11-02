@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import { isElement } from 'react-dom/test-utils';
 
 //component
 function App() {
@@ -25,6 +26,7 @@ function App() {
   const [userName, setUserName] = useState('');
   const [inputNumber, setInputNumber] = useState('');
   const [callBook, setCallBook] = useState('');
+  const [callList, setCallList] = useState([]);
 
   
 
@@ -159,8 +161,10 @@ function App() {
       alert("put your phone number");
       return;
     }
-
+    setCallList((prevState) => [...prevState, callBook]);
+    setCallBook('');
   }
+
 
   
   // JSX
@@ -294,6 +298,9 @@ function App() {
       <p>전화번호부</p>
       <input type="text" value={callBook} onChange={onCallBook} />
       <button onClick={addCallBook}>ADD</button>
+      {
+        
+      }
       
 
 
