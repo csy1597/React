@@ -24,6 +24,8 @@ function App() {
   const [click, setClick] = useState('');
   const [userName, setUserName] = useState('');
   const [inputNumber, setInputNumber] = useState('');
+  const [callBook, setCallBook] = useState('');
+
   
 
 
@@ -144,6 +146,13 @@ function App() {
     e.preventDefault();
     console.log(userName, inputNumber);
   };
+  const onCallBook = (e) => {
+    console.log(callBook);
+    const callRegex = /^[0-9\b -]{0,11}$/;
+    if(callRegex.test(e.target.value)){
+      setCallBook(e.target.value);
+    }
+  }
 
   
   // JSX
@@ -274,6 +283,9 @@ function App() {
         <button type="submit">가입</button>
       </form>
       <hr/>
+      <p>전화번호부</p>
+      <input type="text" value={callBook} onChange={onCallBook} />
+      
 
 
     </div>
