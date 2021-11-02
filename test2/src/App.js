@@ -24,6 +24,8 @@ function App() {
   const [click, setClick] = useState('');
   const [userName, setUserName] = useState('');
   const [inputNumber, setInputNumber] = useState('');
+  const [callBook, setCallBook] = useState('');
+  const [callBookList, setCallBookList] = useState([]);
   
 
 
@@ -143,6 +145,42 @@ function App() {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(userName, inputNumber);
+  };
+  const onCallBook = (e) => {
+    console.log(callBook);
+    const callBookRegex = /^[0-9\b -]{0,11}$/
+    if(callBookRegex.test(e.target.value)){
+      setCallBook(e.target.value);
+    }
+  }
+  const addCallBook = () => {
+    console.log(callBook);
+    if(!callBook){
+      alert("put your phone number");
+      return;
+    }
+    setCallBookList((prevState) => [...prevState, callBook]);
+    setCallBook('');
+  }
+  const onCallEdit = (index) => {
+    console.log(value);
+    const callEdit = prompt();
+    console.log(callEdit);
+    setCallBookList((prevState)=>{
+      const callEditList = prevState.map((item, i) => {
+        return i === index ? callEdit:item;
+      });
+      return callEditList;
+    });
+  };
+  const onCallDelete = (index) => {
+    console.log(index);
+    setCallBookList((prevState)=> {
+      const callDelete = prevState.filter((item, i) =>{
+        return i !== index && item;
+      });
+      return callDelete;
+    });
   };
 
   
@@ -274,8 +312,19 @@ function App() {
         <button type="submit">가입</button>
       </form>
       <hr/>
+      <p>전화번호부</p>
+      <input type="text" value={callBook} onChange={onCallBook} />
+      <button onClick={addCallBook}>ADD</button>
+      {callBookList.map((item, index) => (
+        <div key={index}>
+          <input value={item} readOnly />
+          <button onClick={() => onCallEdit(index)}>Edit</button>
+          <button onClick={() => onCallDelete(index)}>Delete</button>
 
-      
+        </div>
+      ))}
+
+
     </div>
   );
 }
