@@ -30,6 +30,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [selBox, setSelBox] = useState('');
   const selBoxList = ['MacBook', 'Gram', 'Asus', 'Lenovo', 'Samsung'];
+  const [laptop, setLaptop] = useState('');
 
 
 
@@ -195,6 +196,10 @@ function App() {
     console.log(selBox);
     setSelBox(e.target.value);
   }
+  const onLaptop = (e) => {
+    console.log(laptop);
+    setLaptop(e.target.value);
+  }
   
   // JSX
   return (
@@ -349,6 +354,18 @@ function App() {
         ))}
       </select>
       <hr/>
+      <p>you are favorite laptop</p>
+      <label>
+        <input type="radio" value={laptop} onClick={onLaptop} id="MacBook" name="laptop"  /> MacBook
+      </label>
+      <label>
+        <input type="radio" value={laptop} onClick={onLaptop} id="Gram" name="laptop" /> Gram
+      </label>
+      <label>
+        <input type="radio" value={laptop} onClick={onLaptop} id="Samsung" name="laptop"  /> Samsung
+      </label>
+      <hr/>
+
 
       
 
