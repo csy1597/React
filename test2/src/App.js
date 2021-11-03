@@ -28,6 +28,8 @@ function App() {
   const [callBook, setCallBook] = useState('');
   const [callList, setCallList] = useState([]);
   const [count, setCount] = useState(0);
+  const [selBox, setSelBox] = useState('');
+  const selBoxList = []
 
 
 
@@ -189,6 +191,10 @@ function App() {
     setCount(e.target.value);
     return;
   }
+  const onSelBox = (e) => {
+    console.log(selBox);
+    setSelBox(e.target.value);
+  }
   
   // JSX
   return (
@@ -334,6 +340,10 @@ function App() {
       <button onClick = {() => setCount(count+1)}>Click+1</button>
       <button onClick = {() => setCount(count-1)}>Click-1</button>
       <hr/>
+      <p>what do you want laptop?</p>
+      <select value={selBox} onChange={onSelBox}>
+
+      </select>
 
       
 
