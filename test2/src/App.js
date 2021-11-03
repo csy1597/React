@@ -153,6 +153,14 @@ function App() {
       setCallBook(e.target.value);
     }
   };
+  const addCallBook = () => {
+    console.log(callBook);
+    if(!callBook){
+      alert("put your phone number");
+      return
+    }
+
+  }
 
 
   
