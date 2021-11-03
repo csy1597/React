@@ -29,8 +29,7 @@ function App() {
   const [callList, setCallList] = useState([]);
   const [count, setCount] = useState(0);
   const [selBox, setSelBox] = useState('');
-  const selBoxList = ['MacBook', 'Gram', 'Asus', 'Lenovo', 'Samsung'];
-  const [laptop, setLaptop] = useState('');
+  const selBoxList = ['MacBook', 'Gram', 'Samsung'];
 
 
 
@@ -191,16 +190,12 @@ function App() {
     console.log(count);
     setCount(e.target.value);
     return;
-  }
+  };
   const onSelBox = (e) => {
     console.log(selBox);
     setSelBox(e.target.value);
-  }
-  const onLaptop = (e) => {
-    console.log(laptop);
-    setLaptop(e.target.value);
-  }
-  
+  };
+
   // JSX
   return (
     <div className="App">
@@ -233,11 +228,11 @@ function App() {
       <hr/>
       <p>Radiobutton</p>
       <label>
-        <input type="radio" value={isRadio} id="radio1" onChange={radioOnchange} />
+        <input type="radio" value={isRadio} id="집" onChange={radioOnchange} />
         집
       </label>
       <label>
-        <input type="radio" value={isRadio} id="radio2" onChange={radioOnchange} />
+        <input type="radio" value={isRadio} id="차" onChange={radioOnchange} />
         차
       </label>
       <hr/>
@@ -345,26 +340,15 @@ function App() {
       <button onClick = {() => setCount(count+1)}>Click+1</button>
       <button onClick = {() => setCount(count-1)}>Click-1</button>
       <hr/>
-      <p>what do you want laptop?</p>
+      <p>원하느것이 무엇이냐 !!!</p>
       <select value={selBox} onChange={onSelBox}>
-        {selBoxList.map((item)=>(
+        {selBoxList.map((item) => (
           <option value={item} key={item}>
             {item}
           </option>
         ))}
+
       </select>
-      <hr/>
-      <p>you are favorite laptop</p>
-      <label>
-        <input type="radio" value={laptop} onClick={onLaptop} id="MacBook" name="laptop"  /> MacBook
-      </label>
-      <label>
-        <input type="radio" value={laptop} onClick={onLaptop} id="Gram" name="laptop" /> Gram
-      </label>
-      <label>
-        <input type="radio" value={laptop} onClick={onLaptop} id="Samsung" name="laptop"  /> Samsung
-      </label>
-      <hr/>
 
 
       
