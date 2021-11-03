@@ -27,7 +27,6 @@ function App() {
   const [inputNumber, setInputNumber] = useState('');
   const [callBook, setCallBook] = useState('');
   const [callList, setCallList] = useState([]);
-  const [count, setCount] = useState(0);
 
 
 
@@ -184,11 +183,6 @@ function App() {
       return callDeleteList;
     });
   };
-  const onCount = (e) => {
-    console.log(count);
-    setCount(e.target.value);
-    return;
-  }
   
   // JSX
   return (
@@ -328,10 +322,6 @@ function App() {
           <button onClick={()=>oncallDelete(index)}>Delete</button>
         </div>
       ))}
-      <p>카운트{count}</p>
-      <input value={count} onChange={onCount} />
-      <button onClick={()=>setCount(count+1)}>Click+1</button>
-      <button onClick={()=>setCount(count-1)}>Click+1</button>
       
 
 
