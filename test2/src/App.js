@@ -28,6 +28,10 @@ function App() {
   const [callBook, setCallBook] = useState('');
   const [callList, setCallList] = useState([]);
   const [count, setCount] = useState(0);
+  const [selBox, setSelbox] = useState('');
+  const selboxList = ['MacBook', 'Gram', 'Samsung'];
+  const [laptop, setLaptop] = useState('');
+
 
 
 
@@ -189,6 +193,14 @@ function App() {
     setCount(e.target.value);
     return;
   };
+  const onSelBox = (e) =>{
+    console.log(selBox);
+    setSelbox(e.target.value);
+  }
+  const onLaptop = (e) => {
+    console.log(laptop);
+    setLaptop(e.target.value);
+  }
 
   // JSX
   return (
@@ -334,6 +346,25 @@ function App() {
       <button onClick = {() => setCount(count+1)}>Click+1</button>
       <button onClick = {() => setCount(count-1)}>Click-1</button>
       <hr/>
+      <p>무엇을 원하느가?</p>
+      <select value={selBox} onChange={onSelBox}>
+        {selboxList.map((item)=>(
+          <option value={item} key={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+      <hr/>
+      <p>무엇을 좋아하는냐 ?</p>
+      <label>
+        <input type="radio" value={laptop} onClick={onLaptop} id="MacBook" name="laptop" /> MacBook
+      </label>
+      <label>
+        <input type="radio" value={laptop} onClick={onLaptop} id="Gram" name="laptop" /> Gram
+      </label>
+      <label>
+        <input type="radio" value={laptop} onClick={onLaptop} id="Samsung" name="laptop" /> Samsung
+      </label>
 
 
 
