@@ -29,7 +29,7 @@ function App() {
   const [callList, setCallList] = useState([]);
   const [count, setCount] = useState(0);
   const [selBox, setSelBox] = useState('');
-  const selBoxList = []
+  const selBoxList = ['MacBook', 'Gram', 'Asus', 'Lenovo', 'Samsung'];
 
 
 
@@ -342,8 +342,13 @@ function App() {
       <hr/>
       <p>what do you want laptop?</p>
       <select value={selBox} onChange={onSelBox}>
-
+        {selBoxList.map((item)=>(
+          <option value={item} key={item}>
+            {item}
+          </option>
+        ))}
       </select>
+      <hr/>
 
       
 
